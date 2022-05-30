@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Book App</h1>
+    <div id="app">
+        <!-- attribute binding -->
+        <!-- <a :href="url">Best Online Market Evers</a> -->
+        <div v-if="showBooks">
+            <ul>
+                <li v-for="book in books" :class="{ fav: book.isFav}" @click="justTouch(book)">
+                    <img :src="book.img" :alt="book.title">
+                    <h5>{{ book.title }}</h5>
+                    <p>{{ book.author }}</p>
+                    
+                </li>
+            </ul>
+        </div>
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show books</span>
+        </button>
+        <br>
+
+        <!-- Working on some mouse event -->
+        <!-- <div class="fav" @click=""></div> -->
+        <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent($event, 'youtoo')">double click</div>
+        <!-- <div class="box" @mousemove="handleMousemove">position - {{ x }} {{ y }}</div> -->
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+</body>
+</html>
